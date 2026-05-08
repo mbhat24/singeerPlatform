@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+.env
+*.db
+uploads/
+outputs/
+models/rvc/*
+!models/rvc/.gitkeep
+node_modules/
+.next/
+out/
+*.log
+.DS_Store

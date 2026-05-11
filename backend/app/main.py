@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import os
+
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
@@ -26,7 +28,7 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "http://127.0.0.1:3000"],
+    allow_origins=[o.strip() for o in os.environ.get("ALLOWED_ORIGINS", "http://localhost:3000,http://127.0.0.1:3000").split(",")],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
